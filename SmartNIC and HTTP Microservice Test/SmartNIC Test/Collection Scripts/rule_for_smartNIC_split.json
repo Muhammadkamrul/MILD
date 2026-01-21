@@ -1,0 +1,437 @@
+{
+  "tables": {
+    "ingress::mac_lookup": {
+      "default_rule": {
+        "name": "default",
+        "action": { "type": "ingress::multicast", "data": {} }
+      },
+      "rules": [
+        {
+          "name": "r1_mac_00_01",
+          "match": {
+            "ethernet.dstAddr": { "value": "02:01:01:01:00:01" }
+          },
+          "action": {
+            "type": "ingress::mac_forward",
+            "data": { "port": { "value": "768" } }
+          }
+        },
+        {
+          "name": "r2_mac_00_66",
+          "match": {
+            "ethernet.dstAddr": { "value": "02:01:01:01:00:66" }
+          },
+          "action": {
+            "type": "ingress::mac_forward",
+            "data": { "port": { "value": "769" } }
+          }
+        },
+        {
+          "name": "r3_mac_00_67",
+          "match": {
+            "ethernet.dstAddr": { "value": "02:01:01:01:00:67" }
+          },
+          "action": {
+            "type": "ingress::mac_forward",
+            "data": { "port": { "value": "770" } }
+          }
+        },
+        {
+          "name": "r4_mac_00_68",
+          "match": {
+            "ethernet.dstAddr": { "value": "02:01:01:01:00:68" }
+          },
+          "action": {
+            "type": "ingress::mac_forward",
+            "data": { "port": { "value": "771" } }
+          }
+        },
+        {
+          "name": "r5_mac_00_69",
+          "match": {
+            "ethernet.dstAddr": { "value": "02:01:01:01:00:69" }
+          },
+          "action": {
+            "type": "ingress::mac_forward",
+            "data": { "port": { "value": "772" } }
+          }
+        },
+        {
+          "name": "r6_mac_00_6a",
+          "match": {
+            "ethernet.dstAddr": { "value": "02:01:01:01:00:6a" }
+          },
+          "action": {
+            "type": "ingress::mac_forward",
+            "data": { "port": { "value": "773" } }
+          }
+        },
+        {
+          "name": "r7_mac_00_6b",
+          "match": {
+            "ethernet.dstAddr": { "value": "02:01:01:01:00:6b" }
+          },
+          "action": {
+            "type": "ingress::mac_forward",
+            "data": { "port": { "value": "774" } }
+          }
+        },
+        {
+          "name": "r8_mac_00_6c",
+          "match": {
+            "ethernet.dstAddr": { "value": "02:01:01:01:00:6c" }
+          },
+          "action": {
+            "type": "ingress::mac_forward",
+            "data": { "port": { "value": "775" } }
+          }
+        }
+      ]
+    },
+
+    "ingress::existing_networks_64": {
+      "default_rule": {
+        "name": "default",
+        "action": { "type": "ingress::existing_networks_default", "data": {} }
+      },
+      "rules": [
+        {
+          "name": "r_en_64_dbc_0_1",
+          "priority": 64000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766728195242932408079399539179520",
+              "mask": "340282366920938463444927863358058659840"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766728195242932408079399539179520" },
+              "prefix_len": { "value": "64" }
+            }
+          }
+        }
+      ]
+    },
+
+    "ingress::existing_networks_56": {
+      "default_rule": {
+        "name": "default",
+        "action": { "type": "ingress::existing_networks_default", "data": {} }
+      },
+      "rules": [
+        {
+          "name": "r_en_56_dba_0_100",
+          "priority": 56000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766569738922607799143008386940928",
+              "mask": "340282366920938458741008124562122997760"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766569738922607799143008386940928" },
+              "prefix_len": { "value": "56" }
+            }
+          }
+        },
+        {
+          "name": "r_en_56_dbb_0_100",
+          "priority": 56000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766648967085122063480601930891264",
+              "mask": "340282366920938458741008124562122997760"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766648967085122063480601930891264" },
+              "prefix_len": { "value": "56" }
+            }
+          }
+        }
+      ]
+    },
+
+    "ingress::existing_networks_48": {
+      "default_rule": {
+        "name": "default",
+        "action": { "type": "ingress::existing_networks_default", "data": {} }
+      },
+      "rules": [
+        {
+          "name": "r_en_48_db8_1",
+          "priority": 48000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766411283801782723599580828532736",
+              "mask": "340282366920937254537554992802593505280"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766411283801782723599580828532736" },
+              "prefix_len": { "value": "48" }
+            }
+          }
+        },
+        {
+          "name": "r_en_48_db8_2",
+          "priority": 48000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766411285010708543214210003238912",
+              "mask": "340282366920937254537554992802593505280"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766411285010708543214210003238912" },
+              "prefix_len": { "value": "48" }
+            }
+          }
+        },
+        {
+          "name": "r_en_48_db9_1",
+          "priority": 48000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766490511964296987937174372483072",
+              "mask": "340282366920937254537554992802593505280"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766490511964296987937174372483072" },
+              "prefix_len": { "value": "48" }
+            }
+          }
+        }
+      ]
+    },
+
+    "ingress::existing_networks_32": {
+      "default_rule": {
+        "name": "default",
+        "action": { "type": "ingress::existing_networks_default", "data": {} }
+      },
+      "rules": [
+        {
+          "name": "r_en_32_db8",
+          "priority": 32000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766411282592856903984951653826560",
+              "mask": "340282366841710300949110269838224261120"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766411282592856903984951653826560" },
+              "prefix_len": { "value": "32" }
+            }
+          }
+        },
+        {
+          "name": "r_en_32_db9",
+          "priority": 32000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766490510755371168322545197776896",
+              "mask": "340282366841710300949110269838224261120"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766490510755371168322545197776896" },
+              "prefix_len": { "value": "32" }
+            }
+          }
+        },
+        {
+          "name": "r_en_32_dba",
+          "priority": 32000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766569738917885432660138741727232",
+              "mask": "340282366841710300949110269838224261120"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766569738917885432660138741727232" },
+              "prefix_len": { "value": "32" }
+            }
+          }
+        },
+        {
+          "name": "r_en_32_dbb",
+          "priority": 32000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766648967080399696997732285677568",
+              "mask": "340282366841710300949110269838224261120"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766648967080399696997732285677568" },
+              "prefix_len": { "value": "32" }
+            }
+          }
+        },
+        {
+          "name": "r_en_32_dbc",
+          "priority": 32000,
+          "match": {
+            "ipv6.srcAddr": {
+              "value": "42540766728195242913961335325829627904",
+              "mask": "340282366841710300949110269838224261120"
+            }
+          },
+          "action": {
+            "type": "ingress::extract_network",
+            "data": {
+              "network_addr": { "value": "42540766728195242913961335325829627904" },
+              "prefix_len": { "value": "32" }
+            }
+          }
+        }
+      ]
+    },
+
+    "ingress::hop_count": {
+      "default_rule": {
+        "name": "default",
+        "action": { "type": "ingress::hop_count_drop", "data": {} }
+      },
+      "rules": [
+        {
+          "name": "r_hc_dbc_0_1_64_h58",
+          "priority": 64000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766728195242932408079399539179520" },
+            "ingress::current_network.prefix_len": { "value": "64" },
+            "ipv6.hopLimit": { "value": "58" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+
+        {
+          "name": "r_hc_dba_0_100_56_h60",
+          "priority": 56000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766569738922607799143008386940928" },
+            "ingress::current_network.prefix_len": { "value": "56" },
+            "ipv6.hopLimit": { "value": "60" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+        {
+          "name": "r_hc_dbb_0_100_56_h59",
+          "priority": 56000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766648967085122063480601930891264" },
+            "ingress::current_network.prefix_len": { "value": "56" },
+            "ipv6.hopLimit": { "value": "59" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+
+        {
+          "name": "r_hc_db8_1_48_h64",
+          "priority": 48000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766411283801782723599580828532736" },
+            "ingress::current_network.prefix_len": { "value": "48" },
+            "ipv6.hopLimit": { "value": "64" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+        {
+          "name": "r_hc_db8_2_48_h62",
+          "priority": 48000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766411285010708543214210003238912" },
+            "ingress::current_network.prefix_len": { "value": "48" },
+            "ipv6.hopLimit": { "value": "62" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+        {
+          "name": "r_hc_db9_1_48_h61",
+          "priority": 48000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766490511964296987937174372483072" },
+            "ingress::current_network.prefix_len": { "value": "48" },
+            "ipv6.hopLimit": { "value": "61" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+
+        {
+          "name": "r_hc_db8_32_h63",
+          "priority": 32000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766411282592856903984951653826560" },
+            "ingress::current_network.prefix_len": { "value": "32" },
+            "ipv6.hopLimit": { "value": "63" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+        {
+          "name": "r_hc_db9_32_h62",
+          "priority": 32000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766490510755371168322545197776896" },
+            "ingress::current_network.prefix_len": { "value": "32" },
+            "ipv6.hopLimit": { "value": "62" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+        {
+          "name": "r_hc_dba_32_h61",
+          "priority": 32000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766569738917885432660138741727232" },
+            "ingress::current_network.prefix_len": { "value": "32" },
+            "ipv6.hopLimit": { "value": "61" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+        {
+          "name": "r_hc_dbb_32_h60",
+          "priority": 32000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766648967080399696997732285677568" },
+            "ingress::current_network.prefix_len": { "value": "32" },
+            "ipv6.hopLimit": { "value": "60" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        },
+        {
+          "name": "r_hc_dbc_32_h59",
+          "priority": 32000,
+          "match": {
+            "ingress::current_network.network_addr": { "value": "42540766728195242913961335325829627904" },
+            "ingress::current_network.prefix_len": { "value": "32" },
+            "ipv6.hopLimit": { "value": "59" }
+          },
+          "action": { "type": "ingress::hop_count_allow", "data": {} }
+        }
+      ]
+    }
+  }
+}

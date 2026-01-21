@@ -1,0 +1,102 @@
+{
+    "target": "bmv2",
+    "p4info": "build/multicast.p4.p4info.txt",
+    "bmv2_json": "build/multicast.json",
+    "table_entries": [
+        {
+            "table": "MyIngress.mac_lookup",
+            "default_action": true,
+            "action_name": "MyIngress.multicast_all",
+            "action_params": { }
+        },
+        {
+            "table": "MyIngress.mac_lookup",
+            "match": {
+                "hdr.ethernet.dstAddr": "02:01:01:01:00:01"
+            },
+            "action_name": "MyIngress.mac_forward",
+            "action_params": {
+                "port": 2
+            }
+        },
+        {
+            "table": "MyIngress.mac_lookup",
+            "match": {
+                "hdr.ethernet.dstAddr": "02:01:01:01:00:02"
+            },
+            "action_name": "MyIngress.mac_forward",
+            "action_params": {
+                "port": 2
+            }
+        },
+        {
+            "table": "MyIngress.mac_lookup",
+            "match": {
+                "hdr.ethernet.dstAddr": "02:01:01:01:00:03"
+            },
+            "action_name": "MyIngress.mac_forward",
+            "action_params": {
+                "port": 2
+            }
+        },
+        {
+            "table": "MyIngress.mac_lookup",
+            "match": {
+                "hdr.ethernet.dstAddr": "02:01:01:01:00:04"
+            },
+            "action_name": "MyIngress.mac_forward",
+            "action_params": {
+                "port": 2
+            }
+        },
+        {
+            "table": "MyIngress.mac_lookup",
+            "match": {
+                "hdr.ethernet.dstAddr": "02:01:01:01:00:05"
+            },
+            "action_name": "MyIngress.mac_forward",
+            "action_params": {
+                "port": 2
+            }
+        },
+        {
+            "table": "MyIngress.mac_lookup",
+            "match": {
+                "hdr.ethernet.dstAddr": "02:01:01:01:00:06"
+            },
+            "action_name": "MyIngress.mac_forward",
+            "action_params": {
+                "port": 2
+            }
+        },
+        {
+            "table": "MyIngress.mac_lookup",
+            "match": {
+                "hdr.ethernet.dstAddr": "02:01:01:01:00:07"
+            },
+            "action_name": "MyIngress.mac_forward",
+            "action_params": {
+                "port": 2
+            }
+        }
+    ],
+    "multicast_group_entries": [
+        {
+            "multicast_group_id": 1,
+            "replicas": [
+                {
+                    "egress_port": 1,
+                    "instance": 1
+                },
+                {
+                    "egress_port": 2,
+                    "instance": 1
+                },
+                {
+                    "egress_port": 3,
+                    "instance": 1
+                }
+            ]
+        }
+    ]
+}

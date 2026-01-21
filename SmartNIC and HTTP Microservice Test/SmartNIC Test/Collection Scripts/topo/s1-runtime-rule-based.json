@@ -1,0 +1,355 @@
+{
+    "target": "bmv2",
+    "p4info": "build/defense.p4.p4info.txt",
+    "bmv2_json": "build/defense.json",
+    "table_entries": [
+      {
+        "table": "MyIngress.mac_lookup",
+        "default_action": true,
+        "action_name": "MyIngress.multicast",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.mac_lookup",
+        "match": {
+          "hdr.ethernet.dstAddr": "02:01:01:01:00:01"
+        },
+        "action_name": "MyIngress.mac_forward",
+        "action_params": {
+          "port": 768
+        }
+      },
+      {
+        "table": "MyIngress.mac_lookup",
+        "match": {
+          "hdr.ethernet.dstAddr": "02:01:01:01:00:66"
+        },
+        "action_name": "MyIngress.mac_forward",
+        "action_params": {
+          "port": 769
+        }
+      },
+      {
+        "table": "MyIngress.mac_lookup",
+        "match": {
+          "hdr.ethernet.dstAddr": "02:01:01:01:00:67"
+        },
+        "action_name": "MyIngress.mac_forward",
+        "action_params": {
+          "port": 770
+        }
+      },
+      {
+        "table": "MyIngress.mac_lookup",
+        "match": {
+          "hdr.ethernet.dstAddr": "02:01:01:01:00:68"
+        },
+        "action_name": "MyIngress.mac_forward",
+        "action_params": {
+          "port": 771
+        }
+      },
+      {
+        "table": "MyIngress.mac_lookup",
+        "match": {
+          "hdr.ethernet.dstAddr": "02:01:01:01:00:69"
+        },
+        "action_name": "MyIngress.mac_forward",
+        "action_params": {
+          "port": 772
+        }
+      },
+      {
+        "table": "MyIngress.mac_lookup",
+        "match": {
+          "hdr.ethernet.dstAddr": "02:01:01:01:00:6a"
+        },
+        "action_name": "MyIngress.mac_forward",
+        "action_params": {
+          "port": 773
+        }
+      },
+      {
+        "table": "MyIngress.mac_lookup",
+        "match": {
+          "hdr.ethernet.dstAddr": "02:01:01:01:00:6b"
+        },
+        "action_name": "MyIngress.mac_forward",
+        "action_params": {
+          "port": 774
+        }
+      },
+      {
+        "table": "MyIngress.mac_lookup",
+        "match": {
+          "hdr.ethernet.dstAddr": "02:01:01:01:00:6c"
+        },
+        "action_name": "MyIngress.mac_forward",
+        "action_params": {
+          "port": 775
+        }
+      },
+
+      
+      {
+        "table": "MyIngress.existing_networks",
+        "default_action": true,
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:db8::", 32]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:db8::",
+          "prefix_len": 32
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:db8:1::", 48]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:db8:1::",
+          "prefix_len": 48
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:db8:2::", 48]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:db8:2::",
+          "prefix_len": 48
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:db9::", 32]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:db9::",
+          "prefix_len": 32
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:db9:1::", 48]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:db9:1::",
+          "prefix_len": 48
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:dba::", 32]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:dba::",
+          "prefix_len": 32
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:dba:0:100::", 56]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:dba:0:100::",
+          "prefix_len": 56
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:dbb::", 32]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:dbb::",
+          "prefix_len": 32
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:dbb:0:100::", 56]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:dbb:0:100::",
+          "prefix_len": 56
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:dbc::", 32]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:dbc::",
+          "prefix_len": 32
+        }
+      },
+      {
+        "table": "MyIngress.existing_networks",
+        "match": {
+          "hdr.ipv6.srcAddr": ["2001:dbc:0:1::", 64]
+        },
+        "action_name": "MyIngress.extract_network",
+        "action_params": {
+          "network_addr": "2001:dbc:0:1::",
+          "prefix_len": 64
+        }
+      },
+      
+
+      {
+        "table": "MyIngress.hop_count",
+        "default_action": true,
+        "action_name": "MyIngress.hop_count_drop",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:db8::",
+          "meta.current_network.prefix_len": 32,
+          "hdr.ipv6.hopLimit": 63
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:db8:1::",
+          "meta.current_network.prefix_len": 48,
+          "hdr.ipv6.hopLimit": 64
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:db8:2::",
+          "meta.current_network.prefix_len": 48,
+          "hdr.ipv6.hopLimit": 62
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:db9::",
+          "meta.current_network.prefix_len": 32,
+          "hdr.ipv6.hopLimit": 62
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:db9:1::",
+          "meta.current_network.prefix_len": 48,
+          "hdr.ipv6.hopLimit": 61
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:dba::",
+          "meta.current_network.prefix_len": 32,
+          "hdr.ipv6.hopLimit": 61
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:dba:0:100::",
+          "meta.current_network.prefix_len": 56,
+          "hdr.ipv6.hopLimit": 60
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:dbb::",
+          "meta.current_network.prefix_len": 32,
+          "hdr.ipv6.hopLimit": 60
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:dbb:0:100::",
+          "meta.current_network.prefix_len": 56,
+          "hdr.ipv6.hopLimit": 59
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:dbc::",
+          "meta.current_network.prefix_len": 32,
+          "hdr.ipv6.hopLimit": 59
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      },
+      {
+        "table": "MyIngress.hop_count",
+        "match": {
+          "meta.current_network.network_addr": "2001:dbc:0:1::",
+          "meta.current_network.prefix_len": 64,
+          "hdr.ipv6.hopLimit": 58
+        },
+        "action_name": "NoAction",
+        "action_params": { }
+      }
+    ],
+    "multicast_group_entries": [
+      {
+        "multicast_group_id": 1,
+        "replicas": [
+          { "egress_port": 768, "instance": 1 },
+          { "egress_port": 769, "instance": 1 },
+          { "egress_port": 770, "instance": 1 },
+          { "egress_port": 771, "instance": 1 },
+          { "egress_port": 772, "instance": 1 },
+          { "egress_port": 773, "instance": 1 },
+          { "egress_port": 774, "instance": 1 }
+        ]
+      }
+    ]
+  }

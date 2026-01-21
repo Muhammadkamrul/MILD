@@ -1,0 +1,12 @@
+{
+  "security": [
+    {
+      "start": 60,
+      "failure_time": 62,
+      "end": 119,
+      "type": "security_spoofing"
+    }
+  ],
+  "api": [],
+  "analytics": []
+}
