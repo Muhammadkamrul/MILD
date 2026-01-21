@@ -4,7 +4,7 @@
 # Setup
 
 ## Run 'sudo mn -c' in mininet
-## Start smartNIC RTE with design load (See this link on how to install RTE for Netronome SmartNIC)
+## Start smartNIC RTE with design load (See this link on how to install RTE for Netronome SmartNIC: https://help.netronome.com/support/solutions/36000069814)
 ## Setup MACs (use script: setup_vfs.sh)
 ## Do 'Make clean', 'Make run' in mininet
 ## Load Rules (command: sudo /opt/netronome/p4/bin/rtecli --rte-port 20206 config-reload -c rule_for_smartNIC_split.json)
