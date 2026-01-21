@@ -1,0 +1,44 @@
+
+services:
+  api-service:
+    build:
+      context: .
+      dockerfile: services/api_service/Dockerfile
+    environment:
+      - SERVICE_NAME=api-service
+      - TELEMETRY_URL=http://telemetry-service:8000
+      - ANALYTICS_URL=http://analytics-service:8000
+    ports:
+      - "8000:8000"
+
+  telemetry-service:
+    build:
+      context: .
+      dockerfile: services/telemetry_service/Dockerfile
+    environment:
+      - SERVICE_NAME=telemetry-service
+      - ANALYTICS_URL=http://analytics-service:8000
+    ports:
+      - "8001:8000"
+
+  analytics-service:
+    build:
+      context: .
+      dockerfile: services/analytics_service/Dockerfile
+    environment:
+      - SERVICE_NAME=analytics-service
+    ports:
+      - "8002:8000"
+
+  prometheus:
+    image: prom/prometheus:v2.52.0
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
+    depends_on:
+      - api-service
+      - telemetry-service
+      - analytics-service
