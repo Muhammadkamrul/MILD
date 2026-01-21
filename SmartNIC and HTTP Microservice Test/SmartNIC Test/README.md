@@ -1,7 +1,7 @@
 
-##How to run the SmartNIC test
+# How to run the SmartNIC test
 
-##Setup
+# Setup
 
 Run 'sudo mn -c' in mininet
 Start smartNIC RTE with design load (See this link on how to install RTE for Netronome SmartNIC)
@@ -13,7 +13,7 @@ Load Rules (command: sudo /opt/netronome/p4/bin/rtecli --rte-port 20206 config-r
 Run The DAD/NS script (use script: send_ns_register.py)
 
 
-##Test
+# Test
 Run "sudo ./collect_mild_poc_dataset.py "
 It will transmit traffic and log them in csv file.
 
